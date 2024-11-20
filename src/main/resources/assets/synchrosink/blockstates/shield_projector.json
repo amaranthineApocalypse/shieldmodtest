@@ -1,0 +1,7 @@
+{
+  "variants" : {
+    "" : {
+      "model": "synchrosink:block/shield_projector"
+    }
+  }
+}

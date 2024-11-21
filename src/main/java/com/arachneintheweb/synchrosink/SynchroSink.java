@@ -2,6 +2,7 @@ package com.arachneintheweb.synchrosink;
 
 import com.arachneintheweb.synchrosink.block.ModBlocks;
 import com.arachneintheweb.synchrosink.item.ModItems;
+import com.arachneintheweb.synchrosink.shaders.ATFieldShader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.GrassBlock;
@@ -31,6 +32,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import team.lodestar.lodestone.systems.postprocess.PostProcessHandler;
 
 import static com.arachneintheweb.synchrosink.item.ModItems.ITEMS;
 
@@ -118,6 +120,7 @@ public class SynchroSink
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            PostProcessHandler.addInstance(ATFieldShader.INSTANCE);
         }
     }
 }

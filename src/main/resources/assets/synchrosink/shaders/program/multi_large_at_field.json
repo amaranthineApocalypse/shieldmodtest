@@ -4,7 +4,7 @@
     "srcrgb": "srcalpha",
     "dstrgb": "1-srcalpha"
   },
-  "vertex": "synchrosink:multi_large_at_field",
+  "vertex": "blit",
   "fragment": "synchrosink:multi_large_at_field",
   "attributes": [
     "Position"
@@ -41,7 +41,7 @@
     ]
     },
     {
-      "name": "cameraPos", "type": "vec3", "count": 3, "values": [0.0, 0.0, 0.0]
+      "name": "cameraPos", "type": "float", "count": 3, "values": [0.0, 0.0, 0.0]
     },
     {
       "name": "InSize", "type": "float", "count": 2, "values": [1.0, 1.0]

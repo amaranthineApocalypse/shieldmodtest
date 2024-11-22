@@ -37,10 +37,10 @@ void main(){
         vec3 center = fetch3(DataBuffer, index);
         vec3 color = fetch3(DataBuffer, index + 3);
 
-        float distance = length(worldPos - center);
-        if (distance < radius){
-            float falloff = 1.0 - clamp(distance / radius, 0.0, 1.0);
-            fragColor.rgb *= (color * falloff + 1.0);
+    float distance = length(worldPos - center);
+    if (distance <= radius) {
+        float falloff = 1.0 - clamp(distance / radius, 0.0, 1.0);
+        fragColor.rgb *= (color * falloff + 1.0);
         }
     }
 }

@@ -2,10 +2,9 @@ package com.arachneintheweb.synchrosink;
 
 import com.arachneintheweb.synchrosink.block.ModBlocks;
 import com.arachneintheweb.synchrosink.item.ModItems;
-import com.arachneintheweb.synchrosink.shaders.ATFieldShader;
+import com.arachneintheweb.synchrosink.shaders.MultiLargeATFieldShader;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.GrassBlock;
 import net.neoforged.neoforge.registries.*;
 import org.slf4j.Logger;
 
@@ -15,11 +14,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -30,11 +25,8 @@ import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import team.lodestar.lodestone.systems.postprocess.PostProcessHandler;
-
-import static com.arachneintheweb.synchrosink.item.ModItems.ITEMS;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(SynchroSink.MODID)
@@ -120,7 +112,7 @@ public class SynchroSink
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
-            PostProcessHandler.addInstance(ATFieldShader.INSTANCE);
+            PostProcessHandler.addInstance(MultiLargeATFieldShader.INSTANCE);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.arachneintheweb.synchrosink.block.custom;
 
-import com.arachneintheweb.synchrosink.shaders.ATFieldShader;
+import com.arachneintheweb.synchrosink.shaders.LargeATFieldInstance;
+import com.arachneintheweb.synchrosink.shaders.MultiLargeATFieldShader;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -16,7 +17,6 @@ import team.lodestar.lodestone.systems.particle.builder.*;
 import team.lodestar.lodestone.systems.particle.data.*;
 import team.lodestar.lodestone.systems.particle.data.color.*;
 import team.lodestar.lodestone.systems.particle.data.spin.*;
-import team.lodestar.lodestone.systems.particle.world.type.LodestoneWorldParticleType;
 
 import java.awt.*;
 
@@ -28,7 +28,7 @@ public class ShieldProjectorBlock extends Block {
     @Override
     protected @NotNull InteractionResult useWithoutItem(@NotNull BlockState state, @NotNull Level level, @NotNull BlockPos pos, @NotNull Player player, @NotNull BlockHitResult hitResult) {
         spawnExampleParticles(level, pos.above().getCenter());
-        ATFieldShader.INSTANCE.setActive(!ATFieldShader.INSTANCE.isActive());
+        MultiLargeATFieldShader.INSTANCE.addFxInstance(new LargeATFieldInstance(pos.above().getCenter().toVector3f(), new Vec3(1, 0, 1).toVector3f()));
         return InteractionResult.SUCCESS;
     }
 
